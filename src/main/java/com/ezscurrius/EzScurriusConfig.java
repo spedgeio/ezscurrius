@@ -3,6 +3,8 @@ package com.ezscurrius;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
+import net.runelite.client.config.Range;
+import net.runelite.client.config.Units;
 
 import java.awt.Color;
 
@@ -43,10 +45,34 @@ public interface EzScurriusConfig extends Config
 	}
 
 	@ConfigItem(
+		keyName = "choeseSound",
+		name = "Choese Sound",
+		description = "Play a sound when the food pile is ready to eat again.",
+		position = 4
+	)
+	default boolean choeseSound()
+	{
+		return true;
+	}
+
+	@Range(max = 100)
+	@Units(Units.PERCENT)
+	@ConfigItem(
+		keyName = "choeseVolume",
+		name = "Choese Volume",
+		description = "Volume of the choese sound, when it's turned on.",
+		position = 5
+	)
+	default int choeseVolume()
+	{
+		return 50;
+	}
+
+	@ConfigItem(
 		keyName = "debug",
 		name = "Debug Messages",
 		description = "Describe new graphics and the debris model in chat while Scurrius is nearby.",
-		position = 4
+		position = 6
 	)
 	default boolean debug()
 	{
